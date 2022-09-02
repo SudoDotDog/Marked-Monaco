@@ -1,0 +1,33 @@
+{
+  "name": "@sudoo/marked-monaco",
+  "version": "1.0.0",
+  "description": "Monaco Support for Marked",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/Sudoo-Marked-Monaco.git"
+  },
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/Sudoo-Marked-Monaco/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/Sudoo-Marked-Monaco#readme",
+  "devDependencies": {
+    "@sudoo/triforce": "^3.8.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "sourceMap": true
+  }
+}
