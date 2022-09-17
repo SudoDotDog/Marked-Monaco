@@ -5,13 +5,17 @@
  */
 
 import { SandboxLanguage } from "@sudoo/marked";
+import { IMarkedMonacoManager, MarkedMonacoMixin } from "./declare/manager";
 import { LanguageServerDefaults, Monaco } from "./declare/monaco";
 import { mountConfiguration } from "./mount/configuration";
 import { mountLibrary } from "./mount/library";
 
-export class MarkedMonacoManager {
+export class MarkedMonacoManager implements IMarkedMonacoManager {
 
-    public static fromMonaco(monaco: Monaco, language: SandboxLanguage): MarkedMonacoManager {
+    public static fromMonaco(
+        monaco: Monaco,
+        language: SandboxLanguage,
+    ): MarkedMonacoManager {
 
         return new MarkedMonacoManager(monaco, language);
     }
@@ -25,14 +29,26 @@ export class MarkedMonacoManager {
         this._language = language;
     }
 
-    public ignite(): void {
+    public use(mixin: MarkedMonacoMixin): this {
+
+        mixin(this);
+        return this;
+    }
+
+    public ignite(): this {
 
         const languageServerDefaults: LanguageServerDefaults =
             this._getDefaultLanguage();
 
         mountConfiguration(languageServerDefaults);
-
         mountLibrary(languageServerDefaults);
+
+        return this;
+    }
+
+    public getLanguageServerDefaults(): LanguageServerDefaults {
+
+        return this._getDefaultLanguage();
     }
 
     private _getDefaultLanguage(): LanguageServerDefaults {
