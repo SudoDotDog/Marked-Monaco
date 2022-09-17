@@ -1,20 +1,10 @@
 {
     "cSpell.words": [
-        "bwnl",
         "camelcase",
-        "clazz",
         "codecov",
-        "docz",
-        "downlevel",
         "esnext",
-        "forin",
-        "mocharc",
-        "RMRF",
-        "splited",
         "sudoo",
         "triforce",
-        "tshook",
-        "Unmount",
         "WMXPY"
     ],
     "eslint.options": {
