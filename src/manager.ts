@@ -12,12 +12,20 @@ import { mountLibrary } from "./mount/library";
 
 export class MarkedMonacoManager implements IMarkedMonacoManager {
 
-    public static fromMonaco(
+    public static createAndMountBase(
         monaco: Monaco,
         language: SandboxLanguage,
     ): MarkedMonacoManager {
 
-        return new MarkedMonacoManager(monaco, language);
+        const manager: MarkedMonacoManager = new MarkedMonacoManager(monaco, language);
+
+        const languageServerDefaults: LanguageServerDefaults =
+            manager.getLanguageServerDefaults();
+
+        mountConfiguration(languageServerDefaults);
+        mountLibrary(languageServerDefaults);
+
+        return manager;
     }
 
     private readonly _language: SandboxLanguage;
@@ -32,17 +40,6 @@ export class MarkedMonacoManager implements IMarkedMonacoManager {
     public use(mixin: MarkedMonacoMixin): this {
 
         mixin(this);
-        return this;
-    }
-
-    public ignite(): this {
-
-        const languageServerDefaults: LanguageServerDefaults =
-            this._getDefaultLanguage();
-
-        mountConfiguration(languageServerDefaults);
-        mountLibrary(languageServerDefaults);
-
         return this;
     }
 

@@ -12,6 +12,5 @@ export interface IMarkedMonacoManager {
 
     use(mixin: MarkedMonacoMixin): this;
 
-    ignite(): IMarkedMonacoManager;
     getLanguageServerDefaults(): LanguageServerDefaults;
 }
