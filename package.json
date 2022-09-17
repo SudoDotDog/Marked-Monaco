@@ -12,8 +12,13 @@
     "url": "https://github.com/SudoDotDog/Sudoo-Marked-Monaco/issues"
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Marked-Monaco#readme",
+  "peerDependencies": {
+    "@sudoo/marked": "*"
+  },
   "devDependencies": {
-    "@sudoo/triforce": "^3.8.0"
+    "@sudoo/marked": "^3.8.0",
+    "@sudoo/triforce": "^3.8.0",
+    "monaco-editor": "^0.34.0"
   },
   "nyc": {
     "extension": [
