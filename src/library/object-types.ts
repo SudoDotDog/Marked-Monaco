@@ -49,6 +49,10 @@ const omitLibrary: string[] = [
     `type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;`,
 ];
 
+const nonNullableLibrary: string[] = [
+    `type NonNullable<T> = T & {}`,
+];
+
 const parametersLibrary: string[] = [
     `type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;`,
 ];
@@ -74,6 +78,7 @@ export const markedObjectTypesLibrary = [
     ...excludeLibrary,
     ...extractLibrary,
     ...omitLibrary,
+    ...nonNullableLibrary,
     ...parametersLibrary,
     ...constructorParametersLibrary,
     ...returnTypesLibrary,
