@@ -4,15 +4,18 @@
  * @description Configuration
  */
 
-import { LanguageServerDefaults, monaco } from "../declare/monaco";
+import { LanguageNamespace, LanguageServerDefaults } from "../declare/monaco";
 
-export const mountConfiguration = (languageServerDefault: LanguageServerDefaults): void => {
+export const mountConfiguration = (
+    languageServerDefault: LanguageServerDefaults,
+    languageNamespace: LanguageNamespace,
+): void => {
 
     languageServerDefault.setCompilerOptions({
-        target: monaco.languages.typescript.ScriptTarget.ESNext,
+        target: languageNamespace.ScriptTarget.ESNext,
         allowNonTsExtensions: true,
-        moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
-        module: monaco.languages.typescript.ModuleKind.ESNext,
+        moduleResolution: languageNamespace.ModuleResolutionKind.NodeJs,
+        module: languageNamespace.ModuleKind.ESNext,
         noEmit: true,
         typeRoots: [],
         noLib: true,

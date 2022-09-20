@@ -4,7 +4,7 @@
  * @description Manager
  */
 
-import { LanguageServerDefaults } from "./monaco";
+import { LanguageNamespace, LanguageServerDefaults } from "./monaco";
 
 export type MarkedMonacoMixin = (manager: IMarkedMonacoManager) => void;
 
@@ -13,4 +13,5 @@ export interface IMarkedMonacoManager {
     use(mixin: MarkedMonacoMixin): this;
 
     getLanguageServerDefaults(): LanguageServerDefaults;
+    getLanguageNamespace(): LanguageNamespace;
 }

@@ -6,7 +6,7 @@
 
 import { SandboxLanguage } from "@sudoo/marked";
 import { IMarkedMonacoManager, MarkedMonacoMixin } from "./declare/manager";
-import { LanguageServerDefaults, Monaco } from "./declare/monaco";
+import { LanguageNamespace, LanguageServerDefaults, Monaco } from "./declare/monaco";
 import { mountConfiguration } from "./mount/configuration";
 import { mountLibrary } from "./mount/library";
 
@@ -22,7 +22,10 @@ export class MarkedMonacoManager implements IMarkedMonacoManager {
         const languageServerDefaults: LanguageServerDefaults =
             manager.getLanguageServerDefaults();
 
-        mountConfiguration(languageServerDefaults);
+        const languageNamespace: LanguageNamespace =
+            manager.getLanguageNamespace();
+
+        mountConfiguration(languageServerDefaults, languageNamespace);
         mountLibrary(languageServerDefaults);
 
         return manager;
@@ -46,6 +49,11 @@ export class MarkedMonacoManager implements IMarkedMonacoManager {
     public getLanguageServerDefaults(): LanguageServerDefaults {
 
         return this._getDefaultLanguage();
+    }
+
+    public getLanguageNamespace(): LanguageNamespace {
+
+        return this._monaco.languages.typescript;
     }
 
     private _getDefaultLanguage(): LanguageServerDefaults {
