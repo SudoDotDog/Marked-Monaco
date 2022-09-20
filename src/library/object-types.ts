@@ -8,31 +8,31 @@
 import { New_Line_Character } from "@sudoo/marked";
 
 const partialLibrary: string[] = [
-    `interface Partial<T> {`,
+    `type Partial<T> {`,
     `[P in keyof T]?: T[P];`,
     `}`,
 ];
 
 const requiredLibrary: string[] = [
-    `interface Required<T> {`,
+    `type Required<T> {`,
     `[P in keyof T]-?: T[P];`,
     `}`,
 ];
 
 const readonlyLibrary: string[] = [
-    `interface Readonly<T> {`,
+    `type Readonly<T> {`,
     `readonly [P in keyof T]: T[P];`,
     `}`,
 ];
 
 const pickLibrary: string[] = [
-    `interface Pick<T, K extends keyof T> {`,
+    `type Pick<T, K extends keyof T> {`,
     `[P in K]: T[P];`,
     `}`,
 ];
 
 const recordLibrary: string[] = [
-    `interface Record<K extends keyof any, T> {`,
+    `type Record<K extends keyof any, T> {`,
     `[P in K]: T;`,
     `}`,
 ];
