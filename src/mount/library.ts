@@ -17,7 +17,9 @@ import { markedObjectTypesLibrary } from "../library/object-types";
 import { markedRegExpLibrary } from "../library/regexp";
 import { markedStringLibrary } from "../library/string";
 
-export const mountLibrary = (languageServerDefault: LanguageServerDefaults): void => {
+export const mountLibrary = (
+    languageServerDefault: LanguageServerDefaults,
+): void => {
 
     languageServerDefault.addExtraLib([
         markedBigintLibrary,
