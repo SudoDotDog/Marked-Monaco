@@ -11,7 +11,6 @@ import { markedBigintLibrary } from "../library/bigint";
 import { markedBooleanLibrary } from "../library/boolean";
 import { markedFunctionLibrary } from "../library/function";
 import { markedListLibrary } from "../library/list";
-import { markedListTypesLibrary } from "../library/list-types";
 import { markedNumberLibrary } from "../library/number";
 import { markedObjectTypesLibrary } from "../library/object-types";
 import { markedRegExpLibrary } from "../library/regexp";
@@ -26,7 +25,6 @@ export const mountLibrary = (
         markedBooleanLibrary,
         markedFunctionLibrary,
         markedListLibrary,
-        markedListTypesLibrary,
         markedNumberLibrary,
         markedObjectTypesLibrary,
         markedRegExpLibrary,
