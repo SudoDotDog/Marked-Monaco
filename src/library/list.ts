@@ -17,5 +17,6 @@ export const markedListLibrary = [
     `length: number;`,
     `/** Map the array by the given function. */`,
     `map: <R>(condition: (element: T, index: number, array: T[]) => R) => R[];`,
+    `[index: number]: T;`,
     `}`,
 ].join(New_Line_Character);
